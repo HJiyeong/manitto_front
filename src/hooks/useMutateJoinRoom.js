@@ -1,9 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
+import url from '../utils/backend'
 
 const joinRoom = async (code) => {
-  const response = await axios.post('/api/join-room', { code });
-  return response.data;    // 성공 시 반환되는 데이터 (예: 방 정보)
+  const response = await axios.post(`${url}/api/join-room`, { code });
+  return response.data;
 };
 
 const useMutateJoinRoom = () => {
