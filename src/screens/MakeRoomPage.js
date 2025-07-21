@@ -46,7 +46,7 @@ const MakeRoomPage = ({ nickname = '홍길동' }) => {
         </div>
 
         {/* 방장 이름 */}
-        <div style={{ width: '100%', maxWidth: '400px', marginTop: '100px', marginBottom: '60px' }}>
+        <div style={{ width: '100%', maxWidth: '400px',  marginBottom: '60px' }}>
           <div style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '8px' }}>방장</div>
           <div style={{
             fontWeight: 'bold',
