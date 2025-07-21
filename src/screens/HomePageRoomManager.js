@@ -1,10 +1,14 @@
 import React from 'react';
 import Layout1 from '../components/Layout1'
 import MakeRoom from '../assets/images/make_room.png'
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 
 const HomePageRoomManager = () => {
+  const navigate = useNavigate();
   return (
     <Layout1 roomName="방장기능">
         <div style={{ textAlign: 'center' }}>
@@ -20,7 +24,7 @@ const HomePageRoomManager = () => {
         }}
         >
         <button
-        onClick={() => console.log('이미지 클릭됨')}
+        onClick={() => navigate('/makeroom')}
         style={{
             background: 'none',
             border: 'none',
