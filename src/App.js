@@ -8,12 +8,14 @@ import HomePageRoomManager from './screens/HomePageRoomManager'
 import MainPage from './screens/MainPage';
 import RoomListPage from './screens/RoomListPage'
 import RoomCodePage from './screens/RoomCodePage'
+import OAuthRedirectPage from './screens/OAuthRedirectPage';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<StartPage />} />
+        <Route path="/oauth" element={<OAuthRedirectPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/roommanager" element={<HomePageRoomManager />} />
