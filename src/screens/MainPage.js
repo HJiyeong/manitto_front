@@ -34,6 +34,8 @@ const MainPage = () => {
       enabled: !!groupCode,
     });
 
+    
+
 
   if (isLoading) {
     return (
@@ -43,15 +45,13 @@ const MainPage = () => {
     );
   }
 
-  const { hostId, isLocked, isMatched } = groupDetail || {};
-
   const missionCount = memberInfo.completedMissions.length;
   const dumplingPositions = generateRandomPositions(missionCount);
 
   const roomName = groupDetail?.name || "";
   const roomDescription = groupDetail?.description || "";
 
-    if (isGroupDetailLoading || isMemberInfoLoading) {
+    if (isGroupDetailLoading) {
     return (
       <Layout innerBackground={startBg}>
         <p>로딩 중...</p>
