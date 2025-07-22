@@ -1,91 +1,133 @@
 import React, { useState, useEffect } from 'react';
 import Layout1 from '../components/Layout1';
-import defaultProfileImg from '../assets/images/profile.png';  // 네가 사용하는 캐릭터 이미지로 교체
+import defaultProfileImg from '../assets/images/profile.png';
 
 const MyPage = () => {
-  // 백엔드에서 불러올 유저 정보 (더미 데이터)
-  const [userInfo, setUserInfo] = useState({
-    name: '이름',
-    userId: 'jiyeong0105',
-    joinDate: '2025.07.21',
-    profileImg: defaultProfileImg
-  });
+  const [nickname, setNickname] = useState('홍길동');
+  const [editing, setEditing] = useState(false);
+  const [inputNickname, setInputNickname] = useState(nickname);
 
-  // TODO: 나중에 백엔드에서 데이터 받아오기
   useEffect(() => {
-    // 예시) fetchUserInfo().then(data => setUserInfo(data))
+    // TODO: 백엔드에서 닉네임 불러오기
   }, []);
+
+  const handleSaveNickname = () => {
+    if (inputNickname.trim() !== '') {
+      setNickname(inputNickname.trim());
+      setEditing(false);
+    }
+  };
 
   return (
     <Layout1>
       <div style={{ padding: '20px' }}>
-
-        {/* 페이지 타이틀 */}
         <div style={{
           fontWeight: 'bold',
-          fontSize: '20px',
-          marginBottom: '30px'
+          fontSize: '60px',
+          marginBottom: '120px'
         }}>
           마이페이지
         </div>
 
-        {/* 프로필 영역 */}
         <div style={{
-          backgroundColor: 'white',
-          borderRadius: '20px',
-          padding: '30px 20px',
-          textAlign: 'center',
-          marginBottom: '30px'
+          backgroundColor: 'rgba(255, 255, 255, 0.7)',
+          borderRadius: '30px',
+          padding: '50px 20px',
+          textAlign: 'center'
         }}>
-          <div style={{
-            fontWeight: 'bold',
-            fontSize: '18px',
-            marginBottom: '10px'
-          }}>
-            {userInfo.name}
-          </div>
 
           <img
-            src={userInfo.profileImg}
+            src={defaultProfileImg}
             alt="프로필 이미지"
             style={{
-              width: '120px',
-              height: '120px',
-              borderRadius: '20px',
+              width: '240px',
+              height: '240px',
+              borderRadius: '80px',
               objectFit: 'cover',
               marginBottom: '20px'
             }}
           />
+
+          {/* 닉네임 표시 or 수정 */}
+          {editing ? (
+            <>
+              <input
+                type="text"
+                value={inputNickname}
+                onChange={(e) => setInputNickname(e.target.value)}
+                style={{
+                  fontSize: '24px',
+                  padding: '8px',
+                  borderRadius: '8px',
+                  border: '1px solid #ccc',
+                  marginBottom: '10px'
+                }}
+              />
+              <br />
+              <button
+                onClick={handleSaveNickname}
+                style={buttonStyle}>
+                저장
+              </button>
+            </>
+          ) : (
+            <>
+              <div style={{
+                fontWeight: 'bold',
+                fontSize: '30px',
+                marginBottom: '10px'
+              }}>
+                {nickname}
+              </div>
+              <button
+                onClick={() => setEditing(true)}
+                style={buttonStyle}>
+                닉네임 수정
+              </button>
+            </>
+          )}
+
+          {/* 탈퇴 버튼은 완전히 아래로 분리 */}
+
+
         </div>
-
-        {/* 아이디 / 가입일자 */}
-        <div style={{
-          backgroundColor: 'white',
-          borderRadius: '15px',
-          padding: '20px',
-          fontSize: '16px'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            marginBottom: '15px'
-          }}>
-            <div style={{ fontWeight: 'bold' }}>아이디</div>
-            <div>{userInfo.userId}</div>
-          </div>
-
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between'
-          }}>
-            <div style={{ fontWeight: 'bold' }}>가입날짜</div>
-            <div>{userInfo.joinDate}</div>
-          </div>
-        </div>
-
+        
       </div>
+      <div style={{
+        marginTop: '50px',
+        display: 'flex',
+        justifyContent: 'center'
+      }}>
+        <button style={withdrawButtonStyle}>
+          탈퇴하기
+        </button>
+      </div>
+
     </Layout1>
   );
+};
+
+const buttonStyle = {
+  marginTop: '10px',
+  padding: '10px 20px',
+  fontSize: '14px',
+  backgroundColor: '#81d2f7ff',
+  color: 'white',
+  border: 'none',
+  borderRadius: '8px',
+  cursor: 'pointer'
+};
+
+const withdrawButtonStyle = {
+  marginTop: '100px',
+  padding: '12px 100px',
+  fontSize: '14px',
+  backgroundColor: '#ff4d4f',
+  color: 'white',
+  border: 'none',
+  borderRadius: '8px',
+  cursor: 'pointer'
+  
 };
 
 export default MyPage;
