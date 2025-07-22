@@ -52,8 +52,8 @@ const MyPage = () => {
         <div
           style={{
             fontWeight: "bold",
-            fontSize: "60px",
-            marginBottom: "120px",
+            fontSize: "40px",
+            marginBottom: "80px",
           }}
         >
           마이페이지
@@ -121,7 +121,7 @@ const MyPage = () => {
       </div>
       <div
         style={{
-          marginTop: "50px",
+          marginTop: "10px",
           display: "flex",
           justifyContent: "center",
         }}

@@ -62,7 +62,7 @@ const MainPage = () => {
 
   return (
     <Layout1 roomName={roomName} roomDescription={roomDescription}> 
-      <div style={{ textAlign: "left", fontSize: "10px", }}>
+      <div style={{ textAlign: "center", fontSize: "10px", }}>
         <h1>
           {memberInfo.userId.nickname}의 마니또는{" "}
           {memberInfo.manittoId?.nickname || ""}입니다.
