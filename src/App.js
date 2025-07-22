@@ -32,7 +32,7 @@ function App() {
 
           {/** 로그인 후 접근 가능한 페이지 */}
           <Route
-            path="/home"
+            path="/home/:groupCode"
             element={
               <ProtectedRoute>
                 <HomePage />
@@ -64,7 +64,7 @@ function App() {
             }
           />
           <Route
-            path="/main"
+            path="/main/:groupCode"
             element={
               <ProtectedRoute>
                 <MainPage />
@@ -88,7 +88,7 @@ function App() {
             }
           />
           <Route
-            path="/mission"
+            path="/mission/:groupCode"
             element={
               <ProtectedRoute>
                 <MissionPage />
@@ -96,7 +96,7 @@ function App() {
             }
           />
           <Route
-            path="/missionwrite"
+            path="/missionwrite/:groupCode"
             element={
               <ProtectedRoute>
                 <MissionWritePage />
