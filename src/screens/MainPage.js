@@ -62,10 +62,10 @@ const MainPage = ({ username = "000", manittoName = "000" }) => {
           </button>
 
           <div style={{
-            marginTop: '20px',
+            marginTop: '5px',
             display: 'flex',
             justifyContent: 'center',
-            gap: '50px'
+            gap: '30px'
           }}>
             <button
               onClick={() => navigate('/mission')}
