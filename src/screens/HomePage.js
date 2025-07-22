@@ -48,7 +48,7 @@ const HomePage = () => {
             fontWeight: 'bold',
             marginLeft: '40px'
           }}>
-            나의 마니또는?
+            방코드 : 
           </h1>
 
           <div style={{
