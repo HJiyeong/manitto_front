@@ -34,21 +34,11 @@ const MissionPage = () => {
       <div style={{ padding: "20px" }}>
         <div
           style={{
-            backgroundColor: "white",
-            borderTopLeftRadius: "0px",
-            borderTopRightRadius: "0px",
-            borderBottomLeftRadius: "50px",
-            borderBottomRightRadius: "50px",
-            padding: "100px 80px 100px 80px",
             fontWeight: "bold",
             fontSize: "40px",
-            textAlign: "center",
-            marginTop: "-50px",
-            marginLeft: "-40px",
-            marginRight: "-50px",
+            textAlign: "left",
             marginBottom: "70px",
-            width: "114%",
-            boxSizing: "border-box",
+            width: "100%",
           }}
         >
           미션 기록하기
