@@ -84,11 +84,11 @@ const MainPage = () => {
             fontSize: "10px",
             color: "gray",
             textAlign: "center",
-            marginTop: "8px",
+            marginBottom: "8px",
           }}>
             마니또에게 매일 미션을 수행하고 만두를 쌓아보세요!
           </p>
-          
+
           {/* 배경 이미지 */}
 
           <img
