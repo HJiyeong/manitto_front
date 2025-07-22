@@ -91,7 +91,7 @@ const MainPage = () => {
             }}
           >
             <button
-              onClick={() => navigate(`/mission/:dddd`)}
+              onClick={() => navigate(`/mission/${groupCode}`)}
               style={buttonStyle}
             >
               미션 기록하기
