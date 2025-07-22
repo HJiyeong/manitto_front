@@ -24,7 +24,7 @@ const ResultPage = () => {
         }}
         >
         <button
-        onClick={() => navigate('/resultdetail')}
+        onClick={() => navigate('/result/resultdetail')}
         style={{
             background: 'none',
             border: 'none',

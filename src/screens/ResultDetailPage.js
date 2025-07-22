@@ -12,22 +12,22 @@ const ResultDetailPage = () => {
   const navigate = useNavigate();
   const { groupCode } = useParams();
 
-  const {
-    data: memberInfo,
-    isLoading,
-    refetch: refetchNickname,
-  } = useQuery({
-    queryKey: ["missionList"],
-    queryFn: () => getGroupMemberInfo(groupCode),
-  });
+  // const {
+  //   data: memberInfo,
+  //   isLoading,
+  //   refetch: refetchNickname,
+  // } = useQuery({
+  //   queryKey: ["missionList"],
+  //   queryFn: () => getGroupMemberInfo(groupCode),
+  // });
 
-  if (isLoading) {
-    return (
-      <Layout innerBackground={startBg}>
-        <p>로딩 중...</p>
-      </Layout>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <Layout innerBackground={startBg}>
+  //       <p>로딩 중...</p>
+  //     </Layout>
+  //   );
+  // }
 
   return (
     <Layout innerBackground={startBg}>
@@ -51,7 +51,7 @@ const ResultDetailPage = () => {
             boxSizing: "border-box",
           }}
         >
-          미션 기록하기
+          결과 확인하기
         </div>
 
         {/* 마니또 이름 (백엔드 결과 활용) */}
@@ -66,7 +66,6 @@ const ResultDetailPage = () => {
           오늘도 {memberInfo?.manittoId.nickname}에게 잘해줍시다 ~
         </p>
 
-        {/* 미션 리스트 */}
         <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
           {memberInfo?.completedMissions.map((mission) => (
             <div

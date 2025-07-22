@@ -18,6 +18,7 @@ import MakeRoom from './screens/MakeRoomPage'
 import MissionPage from './screens/MissionPage'
 import MissionWritePage from './screens/MissionWritePage'
 import ResultPage from './screens/ResultPage'
+import ResultDetailPage from './screens/ResultDetailPage'
 
 
 const queryClient = new QueryClient();
@@ -111,6 +112,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <ResultPage />
+              </ProtectedRoute>
+            }
+          />
+            <Route
+            path="/result/resultdetail"
+            element={
+              <ProtectedRoute>
+                <ResultDetailPage />
               </ProtectedRoute>
             }
           />
