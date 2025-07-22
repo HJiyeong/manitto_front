@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
-import Layout from "../components/Layout";
+import Layout1 from "../components/Layout1";
 import startBg from "../assets/images/basic_background.png";
 import IC from "../assets/images/ic.png";
 import { getGroupMemberInfo } from "../hooks/useMember";
@@ -23,14 +23,14 @@ const MissionPage = () => {
 
   if (isLoading) {
     return (
-      <Layout innerBackground={startBg}>
+      <Layout1 innerBackground={startBg}>
         <p>로딩 중...</p>
-      </Layout>
+      </Layout1>
     );
   }
 
   return (
-    <Layout innerBackground={startBg}>
+    <Layout1>
       <div style={{ padding: "20px" }}>
         <div
           style={{
@@ -41,7 +41,7 @@ const MissionPage = () => {
             borderBottomRightRadius: "50px",
             padding: "100px 80px 100px 80px",
             fontWeight: "bold",
-            fontSize: "60px",
+            fontSize: "40px",
             textAlign: "center",
             marginTop: "-50px",
             marginLeft: "-40px",
@@ -138,7 +138,7 @@ const MissionPage = () => {
           </button>
         </div>
       </div>
-    </Layout>
+    </Layout1>
   );
 };
 
