@@ -143,7 +143,6 @@ const buttonStyle = {
 };
 
 const withdrawButtonStyle = {
-  marginTop: "50px",
   padding: "12px 100px",
   fontSize: "14px",
   backgroundColor: "#ff4d4f",
