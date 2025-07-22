@@ -47,7 +47,7 @@ const MissionPage = () => {
         {/* 마니또 이름 (백엔드 결과 활용) */}
         <p
           style={{
-            fontSize: "30px",
+            fontSize: "25px",
             marginBottom: "30px",
             fontWeight: "500",
             textAlign: "left",
@@ -62,7 +62,7 @@ const MissionPage = () => {
             <div
               key={mission._id}
               style={{
-                fontSize: "25px",
+                fontSize: "14px",
                 backgroundColor: "white",
                 borderRadius: "12px",
                 display: "flex",
@@ -76,7 +76,7 @@ const MissionPage = () => {
                 <img
                   src={IC}
                   alt="icon"
-                  style={{ width: "60px", marginRight: "30px" }}
+                  style={{ width: "40px", marginRight: "30px" }}
                 />
                 <div>
                   <div style={{ fontWeight: "500" }}>
@@ -85,13 +85,13 @@ const MissionPage = () => {
                   <div style={{ fontWeight: "500" }}>
                     {mission.missionContent}
                   </div>
-                  <div style={{ fontSize: "20px", color: "#888" }}>
+                  <div style={{ fontSize: "10px", color: "#888" }}>
                     {dayjs(mission.performedAt).format("YYYY-MM-DD")}
                   </div>
                 </div>
               </div>
               <div
-                style={{ fontSize: "60px", color: "#ccc", cursor: "pointer" }}
+                style={{ fontSize: "40px", color: "#ccc", cursor: "pointer" }}
                 onClick={() => {
                   markMissionComplete(mission._id);
                   refetchNickname();
@@ -106,7 +106,7 @@ const MissionPage = () => {
         {/* 플러스 버튼 */}
         <div
           style={{
-            marginTop: "40px",
+            marginTop: "20px",
             display: "flex",
             justifyContent: "center",
           }}
