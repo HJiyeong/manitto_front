@@ -39,15 +39,18 @@ const HomePageRoomManager = () => {
         onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
-        <img
-            src={MakeRoom}
-            style={{
-            width: '100%',
-            maxWidth: '500px',
-            borderRadius: '16px',
-            display: 'block',
-            }}
-        />
+        <div className="effect-layer blingbling-effect hologram-effect">
+          <img
+              src={MakeRoom}
+              style={{
+              width: '100%',
+              maxWidth: '500px',
+              borderRadius: '16px',
+              display: 'block',
+              }}
+          />
+          </div>
+        
         </button>
 
         </div>

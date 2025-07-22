@@ -67,11 +67,15 @@ const RoomListPage = () => {
                 cursor: 'pointer',
               }}
             >
+            <div className="blingbling-effect">
               <img src={IC} alt="아이콘" style={{
                   width: '40px',
                   height: '40px',
                   marginRight: '10px',
                 }} />
+            </div>
+
+
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 'bold' }}>{room.name}</div>
                 <div style={{ fontSize: '12px', color: '#555' }}>

@@ -81,13 +81,20 @@ const HomePage = () => {
             <button
               onClick={() => navigate(`/main/${groupCode}`)}
               style={{
-                background: 'none',
-                border: 'none',
-                padding: 0,
-                margin: 0,
-                cursor: 'pointer'
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              margin: 0,
+              cursor: 'pointer',
+              display: 'inline-block',
+              transform: 'scale(1)',
+              transition: 'transform 0.1s ease',
               }}
+            onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
+            onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
             >
+            <div className="effect-layer blingbling-effect hologram-effect">
               <img
                 src={Getmanitto}
                 style={{
@@ -97,6 +104,8 @@ const HomePage = () => {
                   display: 'block'
                 }}
               />
+            </div>
+
             </button>
           </div>
 
