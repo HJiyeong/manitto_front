@@ -28,7 +28,6 @@ const RoomListPage = () => {
 
   return (
     <Layout innerBackground={startBg}>
-      
       <div style={{
           width: '100%',
           minHeight: '100vh',
@@ -55,7 +54,7 @@ const RoomListPage = () => {
           roomList.map((room) => (
             <div
               key={room._id}   // 서버가 주는 고유 ID 사용 권장
-              onClick={() => navigate('/home')}
+              onClick={() => navigate(`/home/${room.inviteCode}`)}
               style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.1)',
                 borderRadius: '20px',
@@ -107,9 +106,9 @@ const RoomListPage = () => {
         >
           방 추가하기
         </button>
-        
-      </div>
 
+      </div>
+      
     </Layout>
   );
 };
