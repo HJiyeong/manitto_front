@@ -1,26 +1,25 @@
-import React from 'react';
-import './App.css'; 
+import React from "react";
+import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import LoginPage from './screens/LoginPage'
-import StartPage from './screens/StartPage';
-import HomePage from './screens/HomePage';
-import MyPage from './screens/MyPage';
-import HomePageRoomManager from './screens/HomePageRoomManager';
-import MainPage from './screens/MainPage';
-import RoomListPage from './screens/RoomListPage';
-import RoomCodePage from './screens/RoomCodePage';
-import OAuthRedirectPage from './screens/OAuthRedirectPage';
-import ProtectedRoute from './components/ProtectedRoute';
-import MakeRoom from './screens/MakeRoomPage'
-import MissionPage from './screens/MissionPage'
-import MissionWritePage from './screens/MissionWritePage'
+import LoginPage from "./screens/LoginPage";
+import StartPage from "./screens/StartPage";
+import HomePage from "./screens/HomePage";
+import MyPage from "./screens/MyPage";
+import HomePageRoomManager from "./screens/HomePageRoomManager";
+import MainPage from "./screens/MainPage";
+import RoomListPage from "./screens/RoomListPage";
+import RoomCodePage from "./screens/RoomCodePage";
+import OAuthRedirectPage from "./screens/OAuthRedirectPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import MakeRoom from "./screens/MakeRoomPage";
+import MissionPage from "./screens/MissionPage";
+import MissionWritePage from "./screens/MissionWritePage";
 
-import ResultPage from './screens/ResultPage'
-import ResultDetailPage from './screens/ResultDetailPage'
-
+import ResultPage from "./screens/ResultPage";
+import ResultDetailPage from "./screens/ResultDetailPage";
 
 const queryClient = new QueryClient();
 
@@ -109,24 +108,21 @@ function App() {
             }
           />
           <Route
-            path="/result"
+            path="/result/:groupCode"
             element={
               <ProtectedRoute>
                 <ResultPage />
               </ProtectedRoute>
             }
           />
-            <Route
-            path="/result/resultdetail"
+          <Route
+            path="/resultdetail/:groupCode"
             element={
               <ProtectedRoute>
                 <ResultDetailPage />
               </ProtectedRoute>
             }
           />
-
-
-          
         </Routes>
       </Router>
     </QueryClientProvider>
@@ -134,4 +130,3 @@ function App() {
 }
 
 export default App;
-
