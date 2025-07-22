@@ -3,54 +3,50 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
-import startBg from '../assets/images/roomlist_background.png'; 
+import startBg from '../assets/images/roomlist_background.png';
 import IC from '../assets/images/ic.png';
 import ICimage from '../assets/images/basic_background.png';
-import url from '../utils/backend';
+import { listMyGroups } from '../hooks/useGroup';
+import { getNickname } from '../hooks/useAuth';
 
-const RoomListPage = ({ username = '지영' }) => {
+const RoomListPage = () => {
   const navigate = useNavigate();
 
-  const fetchMyRooms = async () => {
-    const token = localStorage.getItem('accessToken');
-    const response = await axios.get(`${url}/groups`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;   // 서버에서 받는 rooms 데이터 배열
-  };
-
-  const { data: roomList = [], isLoading } = useQuery({
-    queryKey: ['myRooms'],
-    queryFn: fetchMyRooms,
+  const { data: username, isLoading: isNicknameLoading } = useQuery({
+    queryKey: ['myNickname'],
+    queryFn: getNickname,
   });
 
-  if (isLoading) {
+  const { data: roomList = [], isLoading: isRoomListLoading } = useQuery({
+    queryKey: ['myRooms'],
+    queryFn: listMyGroups,
+  });
+
+  if (isNicknameLoading || isRoomListLoading) {
     return <Layout innerBackground={startBg}><p>로딩 중...</p></Layout>;
   }
 
   return (
-    <Layout innerBackground={startBg}>   
+    <Layout innerBackground={startBg}>
+      
+      <div style={{
+          width: '100%',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '20px',
+          boxSizing: 'border-box',
+        }}>
 
-      <div style={{ 
-        width: '100%',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '20px',
-        boxSizing: 'border-box',
-      }}>
-        
         {/* 상단 멘트 */}
         <div style={{
-          fontSize: '80px',
-          fontWeight: 'bold',
-          marginTop: '40px',
-          marginBottom: '40%',
-          textAlign: 'center',
-        }}>
+            fontSize: '80px',
+            fontWeight: 'bold',
+            marginTop: '40px',
+            marginBottom: '40%',
+            textAlign: 'center',
+          }}>
           {username}님의<br />방 목록
         </div>
 
@@ -73,14 +69,16 @@ const RoomListPage = ({ username = '지영' }) => {
               }}
             >
               <img src={IC} alt="아이콘" style={{
-                width: '40px',
-                height: '40px',
-                marginRight: '10px',
-              }} />
+                  width: '40px',
+                  height: '40px',
+                  marginRight: '10px',
+                }} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 'bold' }}>{room.name}</div>
                 <div style={{ fontSize: '12px', color: '#555' }}>
-                  {room.revealDate ? new Date(room.revealDate).toLocaleDateString() : ''}
+                  {room.revealDate
+                    ? `마니또 공개일: ${new Date(room.revealDate).toLocaleDateString()}`
+                    : ''}
                 </div>
               </div>
             </div>
@@ -90,7 +88,7 @@ const RoomListPage = ({ username = '지영' }) => {
         )}
 
         {/* 방 추가하기 버튼 */}
-        <button 
+        <button
           onClick={() => navigate('/roomcode')}
           style={{
             backgroundImage: `url(${ICimage})`,
@@ -109,7 +107,7 @@ const RoomListPage = ({ username = '지영' }) => {
         >
           방 추가하기
         </button>
-
+        
       </div>
 
     </Layout>
