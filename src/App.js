@@ -8,7 +8,7 @@ import LoginPage from './screens/LoginPage'
 import StartPage from './screens/StartPage';
 import HomePage from './screens/HomePage';
 import MyPage from './screens/MyPage';
-import HomePageRoomManager from './screens/ResultPage';
+import HomePageRoomManager from './screens/HomePageRoomManager';
 import MainPage from './screens/MainPage';
 import RoomListPage from './screens/RoomListPage';
 import RoomCodePage from './screens/RoomCodePage';
@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import MakeRoom from './screens/MakeRoomPage'
 import MissionPage from './screens/MissionPage'
 import MissionWritePage from './screens/MissionWritePage'
+
 import ResultPage from './screens/ResultPage'
 import ResultDetailPage from './screens/ResultDetailPage'
 
