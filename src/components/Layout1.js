@@ -147,7 +147,7 @@ const Layout1 = ({ children, innerBackground, roomName = '(나중에 백엔드�
 
         <button 
             style={menuButtonStyle}
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/start')}
         >
             시작화면
         </button>

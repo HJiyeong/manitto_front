@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import LoginPage from './screens/LoginPage'
 import StartPage from './screens/StartPage';
 import HomePage from './screens/HomePage';
 import MyPage from './screens/MyPage';
@@ -15,6 +16,7 @@ import MakeRoom from './screens/MakeRoomPage'
 import MissionPage from './screens/MissionPage'
 import MissionWritePage from './screens/MissionWritePage'
 
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -23,7 +25,9 @@ function App() {
       <Router>
         <Routes>
           {/** 로그인 전 접근 가능한 페이지 */}
-          <Route path="/" element={<StartPage />} />
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/start" element={<StartPage />} />
+
           <Route path="/oauth" element={<OAuthRedirectPage />} />
 
           {/** 로그인 후 접근 가능한 페이지 */}
