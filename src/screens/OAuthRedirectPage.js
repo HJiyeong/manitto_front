@@ -28,7 +28,7 @@ const OAuthRedirectPage = () => {
         });
         const { accessToken, isNewUser } = response.data;
         localStorage.setItem("accessToken", accessToken);
-        navigate(isNewUser ? "/start" : "/home"); // 닉네임이 없는 경우 startPage로, 닉네임이 있으면 homePage로
+        navigate("/start", { state: { isNewUser } });
       } catch (error) {
         console.error("카카오 로그인 검증 실패 ❌", error);
         alert("로그인에 실패했습니다.");
