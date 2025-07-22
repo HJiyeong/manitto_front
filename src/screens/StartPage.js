@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Layout from '../components/Layout';
 import startBg from '../assets/images/start_background.png';
 
 const StartPage = () => {
+  const location = useLocation();
+  const isNewUser = location.state?.isNewUser;
+
   // 닉네임을 백엔드에서 받아오는 구조로 교체 예정
   const [nickname, setNickname] = useState(null); // 닉네임이 없으면 null
   const [showModal, setShowModal] = useState(false);
@@ -35,7 +39,7 @@ const StartPage = () => {
   };
 
   useEffect(() => {
-    if (nickname === null) {
+    if (isNewUser) {
       setShowModal(true);
     }
   }, [nickname]);
@@ -48,7 +52,7 @@ const StartPage = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: '100vh',
-          textAlign: 'center'
+          textAlign: 'center',
         }}>
 
         {nickname ? (
@@ -81,7 +85,7 @@ const StartPage = () => {
                   margin: '20px 0',
                   fontSize: '16px',
                   borderRadius: '8px',
-                  border: '1px solid #ccc'
+                  border: '1px solid #ccc',
                 }}
               />
               <button onClick={handleSaveNickname} style={buttonStyle}>
@@ -90,7 +94,7 @@ const StartPage = () => {
             </div>
           </div>
         )}
-
+        
       </div>
     </Layout>
   );
@@ -104,7 +108,7 @@ const buttonStyle = {
   color: 'white',
   border: 'none',
   borderRadius: '8px',
-  cursor: 'pointer'
+  cursor: 'pointer',
 };
 
 const modalOverlay = {
@@ -116,7 +120,7 @@ const modalOverlay = {
   backgroundColor: 'rgba(0,0,0,0.5)',
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
 };
 
 const modalBox = {
@@ -124,7 +128,7 @@ const modalBox = {
   borderRadius: '12px',
   padding: '30px 20px',
   textAlign: 'center',
-  width: '300px'
+  width: '300px',
 };
 
 export default StartPage;
