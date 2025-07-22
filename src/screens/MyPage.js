@@ -33,7 +33,7 @@ const MyPage = () => {
 
   const handleSaveNickname = () => {
     if (inputNickname.trim() !== "") {
-      saveNickname();
+      saveNickname(inputNickname);
       setEditing(false);
     }
   };
