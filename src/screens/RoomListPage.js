@@ -50,7 +50,7 @@ const RoomListPage = () => {
         {/* 상단 멘트 */}
         <div
           style={{
-            fontSize: "80px",
+            fontSize: "40px",
             fontWeight: "bold",
             marginTop: "40px",
             marginBottom: "40%",
