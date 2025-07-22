@@ -23,7 +23,7 @@ const LoginPage = () => {
         <img
           src={kakaoLoginBtn}
           onClick={kakaoLogin}
-          style={{ width: '400px', cursor: 'pointer' }}
+          style={{ width: '300px', cursor: 'pointer' }}
         />
       </div>
     </Layout>

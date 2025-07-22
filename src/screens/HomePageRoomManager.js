@@ -3,10 +3,6 @@ import Layout1 from '../components/Layout1'
 import MakeRoom from '../assets/images/make_room.png'
 import { useNavigate } from 'react-router-dom';
 
-
-
-
-
 const HomePageRoomManager = () => {
   const navigate = useNavigate();
   return (
