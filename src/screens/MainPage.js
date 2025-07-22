@@ -5,7 +5,8 @@ import Layout from "../components/Layout";
 import Layout1 from "../components/Layout1";
 import Main from "../assets/images/main.png";
 import startBg from "../assets/images/start_background.png";
-import Dumpling from "../assets/images/ic.png"; // 만두 PNG 추가
+import Dumpling from "../assets/images/ic.png";
+import { getGroupDetails, lockGroup, matchGroup } from "../hooks/useGroup";
 import { getGroupMemberInfo } from "../hooks/useMember";
 import { generateRandomPositions } from "../utils/generateRandomPositions";
 
@@ -22,6 +23,18 @@ const MainPage = () => {
     },
   });
 
+    // 그룹 정보 불러오기
+    const {
+      data: groupDetail,
+      isLoading: isGroupDetailLoading,
+      refetch: refetchGroupDetail,
+    } = useQuery({
+      queryKey: ["groupDetail"],
+      queryFn: () => getGroupDetails(groupCode),
+      enabled: !!groupCode,
+    });
+
+
   if (isLoading) {
     return (
       <Layout innerBackground={startBg}>
@@ -30,12 +43,26 @@ const MainPage = () => {
     );
   }
 
+  const { hostId, isLocked, isMatched } = groupDetail || {};
+
   const missionCount = memberInfo.completedMissions.length;
   const dumplingPositions = generateRandomPositions(missionCount);
 
+  const roomName = groupDetail?.name || "";
+  const roomDescription = groupDetail?.description || "";
+
+    if (isGroupDetailLoading || isMemberInfoLoading) {
+    return (
+      <Layout innerBackground={startBg}>
+        <p>로딩 중...</p>
+      </Layout>
+    );
+  }
+
+
   return (
-    <Layout1 roomName="몰입캠프1">
-      <div style={{ textAlign: "center" }}>
+    <Layout1 roomName={roomName} roomDescription={roomDescription}> 
+      <div style={{ textAlign: "center", fontSize: "20px", }}>
         <h1>
           {memberInfo.userId.nickname}의 마니또는{" "}
           {memberInfo.manittoId?.nickname || ""}입니다.

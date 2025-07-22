@@ -69,7 +69,7 @@ const HomePage = () => {
           <h1
             style={{
               margin: 0,
-              fontSize: "25px",
+              fontSize: "20px",
               fontWeight: "bold",
               marginLeft: "40px",
             }}

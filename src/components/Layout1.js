@@ -60,8 +60,8 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
           <button
             onClick={() => setSidebarVisible(!sidebarVisible)}
             style={{
-              width: '40px',
-              height: '40px',
+              width: '20px',
+              height: '20px',
               marginLeft: '5%',
               backgroundImage: `url(${sideIcon})`,
               backgroundSize: 'contain',
@@ -76,8 +76,8 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
           <button
             onClick={() => navigate('/mypage')}
             style={{
-              width: '40px',
-              height: '40px',
+              width: '20px',
+              height: '20px',
               marginRight: '5%',
               backgroundImage: `url(${mypageIcon})`,
               backgroundSize: 'contain',
