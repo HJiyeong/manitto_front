@@ -115,13 +115,10 @@ const MyPage = () => {
               </button>
             </>
           )}
-
-          {/* 탈퇴 버튼은 완전히 아래로 분리 */}
         </div>
       </div>
       <div
         style={{
-          marginTop: "10px",
           display: "flex",
           justifyContent: "center",
         }}
@@ -146,7 +143,7 @@ const buttonStyle = {
 };
 
 const withdrawButtonStyle = {
-  marginTop: "100px",
+  marginTop: "50px",
   padding: "12px 100px",
   fontSize: "14px",
   backgroundColor: "#ff4d4f",
