@@ -11,6 +11,9 @@ import RoomListPage from './screens/RoomListPage';
 import RoomCodePage from './screens/RoomCodePage';
 import OAuthRedirectPage from './screens/OAuthRedirectPage';
 import ProtectedRoute from './components/ProtectedRoute';
+import MakeRoom from './screens/MakeRoomPage'
+import MissionPage from './screens/MissionPage'
+import MissionWritePage from './screens/MissionWritePage'
 
 const queryClient = new QueryClient();
 
@@ -29,6 +32,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <HomePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/makeroom"
+            element={
+              <ProtectedRoute>
+                <MakeRoom />
               </ProtectedRoute>
             }
           />
@@ -72,6 +83,25 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/mission"
+            element={
+              <ProtectedRoute>
+                <MissionPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/missionwrite"
+            element={
+              <ProtectedRoute>
+                <MissionWritePage />
+              </ProtectedRoute>
+            }
+          />
+
+
+          
         </Routes>
       </Router>
     </QueryClientProvider>

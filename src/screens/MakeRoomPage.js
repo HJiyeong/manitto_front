@@ -20,13 +20,13 @@ const MakeRoomPage = ({ nickname = '홍길동' }) => {
         boxSizing: 'border-box',
       }}>
         {/* 상단 제목 */}
-        <h1 style={{ fontSize: '32px', fontWeight: 'bold' , marginBottom: '40px' }}>
+        <h1 style={{ fontSize: '64px', fontWeight: 'bold' , marginBottom: '40px' }}>
           방 파기
         </h1>
 
         {/* 방 이름 */}
         <div style={{ width: '100%', maxWidth: '400px',marginTop: '50px', marginBottom: '30px' }}>
-          <div style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '8px' }}>방 이름</div>
+          <div style={{ fontWeight: 'bold', fontSize: '32px', marginBottom: '8px' }}>방 이름</div>
           <input
             type="text"
             value={roomName}
@@ -47,7 +47,7 @@ const MakeRoomPage = ({ nickname = '홍길동' }) => {
 
         {/* 방장 이름 */}
         <div style={{ width: '100%', maxWidth: '400px',  marginBottom: '60px' }}>
-          <div style={{ fontWeight: 'bold', fontSize: '16px', marginBottom: '8px' }}>방장</div>
+          <div style={{ fontWeight: 'bold', fontSize: '32px', marginBottom: '8px' }}>방장</div>
           <div style={{
             fontWeight: 'bold',
             fontSize: '20px',
@@ -59,7 +59,7 @@ const MakeRoomPage = ({ nickname = '홍길동' }) => {
 
         {/* 마니또 마감 기간 */}
         <div style={{ width: '100%', maxWidth: '400px', marginTop: '100px', marginBottom: '30px' }}>
-          <div style={{ fontSize: '14px', color: '#666', marginBottom: '8px' }}>마니또 마감 기간</div>
+          <div style={{ fontSize: '28px', color: '#666', marginBottom: '8px' }}>마니또 마감 기간</div>
           <input
             type="date"
             value={revealDate}
@@ -79,7 +79,7 @@ const MakeRoomPage = ({ nickname = '홍길동' }) => {
 
         {/* 설명 */}
         <div style={{ width: '100%', maxWidth: '400px', marginTop: '100px', marginBottom: '50px' }}>
-          <div style={{ fontSize: '14px', color: '#666', marginBottom: '8px' }}>설명</div>
+          <div style={{ fontSize: '28px', color: '#666', marginBottom: '8px' }}>설명</div>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}

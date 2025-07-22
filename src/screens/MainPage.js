@@ -1,9 +1,10 @@
 import React from 'react';
 import Layout1 from '../components/Layout1'
 import Main from '../assets/images/main.png'
-
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = ({ username = "000", manittoName = "000" }) => {
+  const navigate = useNavigate();
   return (
     <Layout1 roomName="몰입캠프1">
         <div style={{ textAlign: 'center' }}>
@@ -44,6 +45,51 @@ const MainPage = ({ username = "000", manittoName = "000" }) => {
             }}
         />
         </button>
+
+        <div style={{
+          marginTop: '20px',
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '50px'
+        }}>
+          <button
+          onClick={() => navigate('/mission')} 
+          style={{
+            backgroundColor: '#000000ff',
+            color: 'white',
+            padding: '10px 20px',
+            borderRadius: '20px',
+            border: 'none',
+            fontSize: '16px',
+            cursor: 'pointer'
+          }}>
+            미션 기록하기
+          </button>
+          <button 
+          style={{
+              backgroundColor: '#000000ff',
+              color: 'white',
+              padding: '10px 20px',
+              borderRadius: '20px',
+              border: 'none',
+              fontSize: '16px',
+              cursor: 'pointer'
+            }}>
+              오늘의 미션
+          </button>
+          <button style={{
+              backgroundColor: '#000000ff',
+              color: 'white',
+              padding: '10px 20px',
+              borderRadius: '20px',
+              border: 'none',
+              fontSize: '16px',
+              cursor: 'pointer'
+            }}>
+              마니또 맞추기
+          </button>
+
+        </div>
 
         </div>
       </div>
