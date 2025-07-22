@@ -15,7 +15,7 @@ const RoomCodePage = () => {
   const { mutate, isPending } = useMutation({
     mutationFn: () => joinGroup(roomCode),
     onSuccess: () => {
-      navigate(`/main/${roomCode}`);
+      navigate(`/home/${roomCode}`);
     },
     onError: (error) => {
       console.error("마니또 방 입장 실패", error);
