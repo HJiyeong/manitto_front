@@ -69,7 +69,7 @@ const HomePage = () => {
           <h1
             style={{
               margin: 0,
-              fontSize: "30px",
+              fontSize: "25px",
               fontWeight: "bold",
               marginLeft: "40px",
             }}
@@ -83,7 +83,7 @@ const HomePage = () => {
               backgroundColor: isLocked ? "#ff4d4f" : "#81d2f7",
               color: "white",
               fontWeight: "bold",
-              fontSize: "14px",
+              fontSize: "10px",
               padding: "8px 20px",
               borderRadius: "20px",
               marginLeft: "20px",

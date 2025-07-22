@@ -94,7 +94,7 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
         <div style={{ margin: 50 }}>
           <h2 style={{
               margin: 0,
-              fontSize: '50px',
+              fontSize: '35px',
               fontWeight: 'bold',
               color: '#333',
             }}>
