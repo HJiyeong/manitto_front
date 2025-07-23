@@ -5,7 +5,7 @@ import startBg from "../assets/images/start_background.png";
 import Result from "../assets/images/result.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getGroupDetails, getGroupMemberInfo } from "../hooks/useGroup";
+import { getGroupMemberInfo } from "../hooks/useMember";
 
 const ResultPage = () => {
   const navigate = useNavigate();
