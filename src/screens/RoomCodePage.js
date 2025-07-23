@@ -54,7 +54,7 @@ const RoomCodePage = () => {
             textAlign: "center",
           }}
         >
-          방 추가하기
+          방 참여하기
         </div>
 
         {/* 코드 입력 영역 */}

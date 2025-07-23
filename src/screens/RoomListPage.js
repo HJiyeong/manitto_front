@@ -131,7 +131,7 @@ const RoomListPage = () => {
             maxWidth: "400px",
           }}
         >
-          방 추가하기
+          새로운 방 참여하기
         </button>
       </div>
     </Layout>
