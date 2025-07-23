@@ -48,7 +48,6 @@ const RoomCodePage = () => {
           style={{
             fontSize: "40px",
             fontWeight: "bold",
-            marginTop: "20%",
             marginBottom: "120px",
             textAlign: "center",
           }}
@@ -60,8 +59,8 @@ const RoomCodePage = () => {
         <div
           style={{
             backgroundColor: "white",
-            width: "90%",
-            maxWidth: "400px",
+            width: "70%",
+            maxWidth: "300px",
             borderRadius: "20px",
             padding: "30px 20px",
             boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
