@@ -60,7 +60,17 @@ const MainPage = () => {
   const missionCount = memberInfo?.completedMissions.length || 0;
 
 
-  const dumplingPositions = useMemo(() => generateRandomPositions(missionCount), [missionCount]);
+  const dumplingData = useMemo(() => {
+  return memberInfo?.completedMissions.map((mission, idx) => ({
+    ...generateRandomPositions(1)[0], // top, left
+    content: mission.missionContent,
+    id: mission._id,
+  }));
+}, [memberInfo?.completedMissions]);
+
+  const [activeDumplingId, setActiveDumplingId] = useState(null);
+
+
 
 
   const roomName = groupDetail?.name || "";
@@ -123,21 +133,45 @@ const MainPage = () => {
           />
 
           {/* 만두 PNG 여러개 뿌리기 */}
-          {dumplingPositions.map((pos, index) => (
-            <img
-              key={index}
-              src={Dumpling}
-              className="dumpling-animated"
-              style={{
-                position: "absolute",
-                width: "50px",
-                top: pos.top,
-                left: pos.left,
-                zIndex: 2,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            />
-          ))}
+{dumplingData.map((pos, index) => (
+  <React.Fragment key={pos.id}>
+    <img
+      src={Dumpling}
+      className="dumpling-animated"
+      style={{
+        position: "absolute",
+        width: "50px",
+        top: pos.top,
+        left: pos.left,
+        zIndex: 2,
+        cursor: "pointer",
+      }}
+      onClick={() =>
+        setActiveDumplingId(activeDumplingId === pos.id ? null : pos.id)
+      }
+    />
+      {activeDumplingId === pos.id && (
+        <div
+          style={{
+            position: "absolute",
+            top: pos.top - 40,
+            left: pos.left,
+            backgroundColor: "white",
+            border: "1px solid #ccc",
+            borderRadius: "10px",
+            padding: "5px 10px",
+            fontSize: "12px",
+            maxWidth: "150px",
+            zIndex: 3,
+            whiteSpace: "pre-wrap",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+          }}
+        >
+          {pos.content}
+        </div>
+      )}
+    </React.Fragment>
+  ))}
 
           {/* 버튼 영역 */}
           <div
