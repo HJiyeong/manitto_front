@@ -149,7 +149,7 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
             style={{
               width: "60px",
               height: "60px",
-              marginBottom: "20px",
+              marginBottom: "10px",
               backgroundColor: "transparent",
               border: "none",
               fontSize: "20px",
