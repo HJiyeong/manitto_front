@@ -25,6 +25,9 @@ const MakeRoomPage = () => {
   const mutation = useMutation({
     mutationFn: () => createGroup(roomData),
     onSuccess: (groupCode) => {
+      alert(
+        "방 생성 완료! 🎉\n다음 화면에서 방 코드를 확인하고 친구들에게 공유하세요."
+      );
       // 성공하면 홈 페이지로 이동
       navigate(`/home/${groupCode}`);
     },
