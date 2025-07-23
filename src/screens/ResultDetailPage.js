@@ -47,7 +47,7 @@ const ResultDetailPage = () => {
         {/* 제목 */}
         <div
           style={{
-            fontSize: "60px",
+            fontSize: "30px",
             fontWeight: "bold",
             marginTop: "5px",
             marginBottom: "20%",
