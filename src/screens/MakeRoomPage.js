@@ -65,7 +65,7 @@ const MakeRoomPage = () => {
       >
         {/* 상단 제목 */}
         <h1
-          style={{ fontSize: "40px", fontWeight: "bold", marginBottom: "100px" }}
+          style={{ fontSize: "40px", fontWeight: "bold", marginBottom: "100px", marginTop: "5px" }}
         >
           방 파기
         </h1>
