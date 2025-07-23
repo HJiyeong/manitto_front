@@ -47,21 +47,23 @@ const ResultDetailPage = () => {
         {/* 제목 */}
         <div
           style={{
-            fontSize: "40px",
+            fontSize: "30px",
             fontWeight: "bold",
             marginTop: "5px",
             marginBottom: "20%",
-            textAlign: "left",
+            textAlign: "center", // 가운데 정렬이 더 자연스러울 수 있음
+            lineHeight: "1.6",
           }}
         >
           <span style={{ color: "#2D9CDB", fontWeight: "800" }}>
             {manittoInfo.userId.nickname}
           </span>
-          님은{" "}
+          님이<br />
           <span style={{ color: "#EB5757", fontWeight: "800" }}>
             {manittoInfo.manittoId.nickname}
           </span>
-          님의 마니또입니다.
+          님의<br />
+          마니또였습니다 🎉
         </div>
 
 
