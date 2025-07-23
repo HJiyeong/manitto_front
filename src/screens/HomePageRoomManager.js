@@ -7,7 +7,7 @@ const HomePageRoomManager = () => {
   const navigate = useNavigate();
   return (
     <Layout1 roomName="방장기능">
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ fontSize: '16px' ,textAlign: 'left' }}>
         <h1>방을 파세요~</h1>
         <div
         style={{
@@ -39,7 +39,7 @@ const HomePageRoomManager = () => {
           <img
               src={MakeRoom}
               style={{
-              width: '100%',
+              width: '50%',
               maxWidth: '500px',
               borderRadius: '16px',
               display: 'block',
