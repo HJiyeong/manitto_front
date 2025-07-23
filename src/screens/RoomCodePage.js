@@ -48,7 +48,7 @@ const RoomCodePage = () => {
           style={{
             fontSize: "40px",
             fontWeight: "bold",
-            marginBottom: "120px",
+            marginBottom: "180px",
             textAlign: "center",
           }}
         >
