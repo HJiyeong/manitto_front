@@ -44,7 +44,7 @@ const MainPage = () => {
 
   // 추측 등록
   const { mutate: saveManittoGuess, isPending } = useMutation({
-    mutationFn: updateManittoGuess,
+    mutationFn: ({ groupCode, guess }) => updateManittoGuess(groupCode, guess),
     onSuccess: async () => {
       refetchMemberInfo(); // 백엔드 서버에서 다시 멤버 정보 불러오기
       setShowModal(false);
@@ -53,11 +53,11 @@ const MainPage = () => {
 
   const handleSaveGuess = () => {
     if (manittoGuess.trim() !== "") {
-      saveManittoGuess(groupCode, manittoGuess.trim());
+      saveManittoGuess({ groupCode, guess: manittoGuess.trim() });
     }
   };
 
-  const missionCount = memberInfo.completedMissions.length || 0;
+  const missionCount = memberInfo?.completedMissions.length || 0;
   const dumplingPositions = generateRandomPositions(missionCount);
 
   const roomName = groupDetail?.name || "";
