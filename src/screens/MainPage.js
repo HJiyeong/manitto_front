@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import Layout from "../components/Layout";
@@ -58,7 +58,10 @@ const MainPage = () => {
   };
 
   const missionCount = memberInfo?.completedMissions.length || 0;
-  const dumplingPositions = generateRandomPositions(missionCount);
+
+
+  const dumplingPositions = useMemo(() => generateRandomPositions(missionCount), [missionCount]);
+
 
   const roomName = groupDetail?.name || "";
   const roomDescription = groupDetail?.description || "";
@@ -130,7 +133,7 @@ const MainPage = () => {
                 width: "50px",
                 top: pos.top,
                 left: pos.left,
-                zIndex: 5,
+                zIndex: 2,
                 animationDelay: `${Math.random() * 2}s`,
               }}
             />
@@ -159,11 +162,25 @@ const MainPage = () => {
 
         {showModal && (
           <div style={modalOverlay}>
-            <div style={modalBox}>
+            <div style={{ ...modalBox, position: "relative" }}>
+              <button
+                onClick={() => setShowModal(false)}
+                style={{
+                  position: "absolute",
+                  top: "10px",
+                  right: "15px",
+                  background: "transparent",
+                  border: "none",
+                  fontSize: "20px",
+                  cursor: "pointer",
+                }}
+              >
+                ×
+              </button>
               <h3>누가 나의 마니또일지 예상해보세요.</h3>
               <form
                 onSubmit={(e) => {
-                  e.preventDefault(); // 기본 새로고침 방지
+                  e.preventDefault();
                   handleSaveGuess();
                 }}
               >
@@ -186,6 +203,7 @@ const MainPage = () => {
               </form>
             </div>
           </div>
+
         )}
       </div>
     </Layout1>
@@ -212,6 +230,7 @@ const modalOverlay = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  zIndex: 1000,
 };
 
 const modalBox = {
