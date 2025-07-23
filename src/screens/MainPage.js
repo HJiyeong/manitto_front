@@ -133,45 +133,49 @@ const MainPage = () => {
           />
 
           {/* 만두 PNG 여러개 뿌리기 */}
-{dumplingData.map((pos, index) => (
-  <React.Fragment key={pos.id}>
-    <img
-      src={Dumpling}
-      className="dumpling-animated"
-      style={{
-        position: "absolute",
-        width: "50px",
-        top: pos.top,
-        left: pos.left,
-        zIndex: 2,
-        cursor: "pointer",
-      }}
-      onClick={() =>
-        setActiveDumplingId(activeDumplingId === pos.id ? null : pos.id)
-      }
-    />
-      {activeDumplingId === pos.id && (
-        <div
-          style={{
-            position: "absolute",
-            top: pos.top - 40,
-            left: pos.left,
-            backgroundColor: "white",
-            border: "1px solid #ccc",
-            borderRadius: "10px",
-            padding: "5px 10px",
-            fontSize: "12px",
-            maxWidth: "150px",
-            zIndex: 3,
-            whiteSpace: "pre-wrap",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-          }}
-        >
-          {pos.content}
-        </div>
-      )}
-    </React.Fragment>
-  ))}
+          {dumplingData.map((pos, index) => (
+            <React.Fragment key={pos.id}>
+              {/* 만두 이미지 */}
+              <img
+                src={Dumpling}
+                className="dumpling-animated"
+                style={{
+                  position: "absolute",
+                  width: "50px",
+                  top: pos.top,
+                  left: pos.left,
+                  zIndex: 2,
+                  cursor: "pointer",
+                }}
+                onClick={() =>
+                  setActiveDumplingId(activeDumplingId === pos.id ? null : pos.id)
+                }
+              />
+
+              {/* 말풍선 */}
+              {activeDumplingId === pos.id && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: pos.top - 50, // 만두 위로 띄움
+                    left: pos.left + 10, // 중앙 정렬 조정
+                    backgroundColor: "white",
+                    border: "1px solid #ccc",
+                    borderRadius: "10px",
+                    padding: "8px 10px",
+                    fontSize: "12px",
+                    maxWidth: "160px",
+                    zIndex: 3,
+                    whiteSpace: "pre-wrap",
+                    boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+                  }}
+                >
+                  {pos.content}
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+
 
           {/* 버튼 영역 */}
           <div
