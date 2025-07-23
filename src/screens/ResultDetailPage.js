@@ -56,11 +56,11 @@ const ResultDetailPage = () => {
           }}
         >
           <span style={{ color: "#2D9CDB", fontWeight: "800" }}>
-            {manittoInfo.userId.nickname}
-          </span>
-          님이<br />
-          <span style={{ color: "#EB5757", fontWeight: "800" }}>
             {manittoInfo.manittoId.nickname}
+          </span>
+          님은<br />
+          <span style={{ color: "#EB5757", fontWeight: "800" }}>
+            {manittoInfo.userId.nickname}
           </span>
           님의<br />
           마니또였습니다 🎉
