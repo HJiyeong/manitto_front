@@ -10,7 +10,7 @@ import ICimage from "../assets/images/basic_background.png";
 import { listMyGroups } from "../hooks/useGroup";
 import { getNickname } from "../hooks/useAuth";
 import dayjs from "dayjs";
-import isSameOrAfter from "dayjs/plugin/isSameOrAfter"; // 플러그인 import
+import isSameOrAfter from "dayjs/plugin/isSameOrAfter"; 
 
 dayjs.extend(isSameOrAfter);
 
@@ -53,7 +53,6 @@ const RoomListPage = () => {
           style={{
             fontSize: "40px",
             fontWeight: "bold",
-            marginTop: "40px",
             marginBottom: "40%",
             textAlign: "center",
           }}
