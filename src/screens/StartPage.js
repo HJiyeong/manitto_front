@@ -144,6 +144,7 @@ const StartPage = () => {
 };
 
 const buttonStyle = {
+  fontFamily: 'MyCustomFont, sans-serif',
   marginTop: '20px',
   padding: '12px 24px',
   fontSize: '16px',

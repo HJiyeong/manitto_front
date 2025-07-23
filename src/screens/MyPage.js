@@ -132,6 +132,7 @@ const MyPage = () => {
 };
 
 const buttonStyle = {
+  fontFamily: 'MyCustomFont, sans-serif',
   marginTop: "10px",
   padding: "10px 20px",
   fontSize: "14px",
@@ -143,6 +144,7 @@ const buttonStyle = {
 };
 
 const withdrawButtonStyle = {
+  fontFamily: 'MyCustomFont, sans-serif',
   padding: "12px 100px",
   fontSize: "14px",
   backgroundColor: "#ff4d4f",
