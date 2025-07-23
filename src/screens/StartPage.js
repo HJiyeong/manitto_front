@@ -56,8 +56,36 @@ const StartPage = () => {
           alignItems: 'center',
           height: '100vh',
           textAlign: 'center',
+          position: 'relative',
+          overflow: 'hidden',  
         }}
       >
+
+      {Array.from({ length: 20 }).map((_, i) => {
+        const left = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const duration = 8 + Math.random() * 5;
+
+        return (
+          <img
+            key={i}
+            src={require('../assets/images/character.png')}
+            alt="falling-character"
+            style={{
+              position: 'absolute',
+              top: '-60px',
+              left: `${left}vw`,
+              width: '40px',
+              height: '40px',
+              zIndex: 0,
+              animation: `falling ${duration}s linear ${delay}s infinite`,
+              opacity: 0.7,
+              pointerEvents: 'none',
+            }}
+          />
+        );
+      })}
+
         {nickname ? (
           <h2 style={{ fontSize: '24px', fontWeight: 'bold' }}>
             {nickname}님 안녕하세요!
