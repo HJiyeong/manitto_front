@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import Layout from "../components/Layout";
+import Layout1 from "../components/Layout1";
 import startBg from "../assets/images/makeroom_background.png";
 import ICimage from "../assets/images/basic_background.png";
 import { createGroup } from "../hooks/useGroup";
@@ -50,7 +51,7 @@ const MakeRoomPage = () => {
   }
 
   return (
-    <Layout innerBackground={startBg}>
+    <Layout1 innerBackground={startBg}>
       <div
         style={{
           width: "100%",
@@ -64,7 +65,7 @@ const MakeRoomPage = () => {
       >
         {/* 상단 제목 */}
         <h1
-          style={{ fontSize: "64px", fontWeight: "bold", marginBottom: "40px" }}
+          style={{ fontSize: "40px", fontWeight: "bold", marginBottom: "100px" }}
         >
           방 파기
         </h1>
@@ -81,7 +82,7 @@ const MakeRoomPage = () => {
           <div
             style={{
               fontWeight: "bold",
-              fontSize: "32px",
+              fontSize: "20px",
               marginBottom: "8px",
             }}
           >
@@ -98,9 +99,10 @@ const MakeRoomPage = () => {
             }
             placeholder="방 이름을 입력하세요"
             style={{
+              fontFamily: 'MyCustomFont, sans-serif',
               width: "100%",
               padding: "10px",
-              fontSize: "16px",
+              fontSize: "14px",
               border: "none",
               borderBottom: "2px solid #aaa",
               outline: "none",
@@ -115,7 +117,7 @@ const MakeRoomPage = () => {
           <div
             style={{
               fontWeight: "bold",
-              fontSize: "32px",
+              fontSize: "20px",
               marginBottom: "8px",
             }}
           >
@@ -124,7 +126,7 @@ const MakeRoomPage = () => {
           <div
             style={{
               fontWeight: "bold",
-              fontSize: "20px",
+              fontSize: "14px",
               textAlign: "center",
             }}
           >
@@ -141,7 +143,7 @@ const MakeRoomPage = () => {
             marginBottom: "30px",
           }}
         >
-          <div style={{ fontSize: "28px", color: "#666", marginBottom: "8px" }}>
+          <div style={{ fontSize: "20px", color: "#666", marginBottom: "8px" }}>
             마니또 마감 기간
           </div>
           <input
@@ -175,7 +177,7 @@ const MakeRoomPage = () => {
             marginBottom: "50px",
           }}
         >
-          <div style={{ fontSize: "28px", color: "#666", marginBottom: "8px" }}>
+          <div style={{ fontSize: "20px", color: "#666", marginBottom: "8px" }}>
             설명
           </div>
           <textarea
@@ -189,9 +191,10 @@ const MakeRoomPage = () => {
             placeholder="그룹에 대한 설명을 입력하세요"
             rows={3}
             style={{
+              fontFamily: 'MyCustomFont, sans-serif',
               width: "100%",
               padding: "10px",
-              fontSize: "16px",
+              fontSize: "14px",
               border: "none",
               borderBottom: "2px solid #aaa",
               background: "transparent",
@@ -209,6 +212,7 @@ const MakeRoomPage = () => {
             backgroundPosition: "center",
             marginTop: "100px",
             color: "black",
+            fontFamily: 'MyCustomFont, sans-serif',
             fontWeight: "bold",
             fontSize: "16px",
             border: "none",
@@ -223,7 +227,7 @@ const MakeRoomPage = () => {
           코드 생성
         </button>
       </div>
-    </Layout>
+    </Layout1>
   );
 };
 

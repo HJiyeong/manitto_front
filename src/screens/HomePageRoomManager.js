@@ -7,7 +7,7 @@ const HomePageRoomManager = () => {
   const navigate = useNavigate();
   return (
     <Layout1 roomName="방장기능">
-        <div style={{ fontSize: '16px' ,textAlign: 'left' }}>
+        <div style={{ fontSize: '14px' ,textAlign: 'center' }}>
         <h1>방을 파세요~</h1>
         <div
         style={{
