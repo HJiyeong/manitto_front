@@ -73,7 +73,7 @@ const StartPage = () => {
         </Link>
 
         <Link to="/roommanager">
-          <button style={buttonStyle}>방장 기능 사용하기</button>
+          <button style={buttonStyle}>방 만들기</button>
         </Link>
 
         {showModal && (
