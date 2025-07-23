@@ -139,8 +139,7 @@ const MakeRoomPage = () => {
           style={{
             width: "100%",
             maxWidth: "400px",
-            marginTop: "100px",
-            marginBottom: "30px",
+            marginBottom: "8px",
           }}
         >
           <div style={{ fontSize: "20px", color: "#666", marginBottom: "8px" }}>
@@ -210,7 +209,7 @@ const MakeRoomPage = () => {
             backgroundImage: `url(${ICimage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            marginTop: "100px",
+            marginTop: "20px",
             color: "black",
             fontFamily: 'MyCustomFont, sans-serif',
             fontWeight: "bold",
