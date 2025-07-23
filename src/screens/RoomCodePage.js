@@ -50,7 +50,7 @@ const RoomCodePage = () => {
             fontSize: "40px",
             fontWeight: "bold",
             marginTop: "30%",
-            marginBottom: "50px",
+            marginBottom: "100px",
             textAlign: "center",
           }}
         >
