@@ -136,10 +136,9 @@ const MainPage = () => {
               fontSize: "10px",
               color: "gray",
               textAlign: "center",
-              marginBottom: "8px",
             }}
           >
-            마니또에게 매일 미션을 수행하고 만두를 쌓아보세요!
+            만두를 눌러보세요!
           </p>
 
 
