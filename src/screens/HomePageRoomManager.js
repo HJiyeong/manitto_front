@@ -39,7 +39,7 @@ const HomePageRoomManager = () => {
           <img
               src={MakeRoom}
               style={{
-              width: '50%',
+              width: '100%',
               maxWidth: '500px',
               borderRadius: '16px',
               display: 'block',
