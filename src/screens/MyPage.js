@@ -87,9 +87,9 @@ const MyPage = () => {
                 value={inputNickname}
                 onChange={(e) => setInputNickname(e.target.value)}
                 style={{
-                  fontSize: "24px",
+                  fontSize: "16px",
                   padding: "8px",
-                  borderRadius: "8px",
+                  borderRadius: "16px",
                   border: "1px solid #ccc",
                   marginBottom: "10px",
                 }}
