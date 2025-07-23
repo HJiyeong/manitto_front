@@ -46,6 +46,54 @@ const HomePage = () => {
   const roomName = groupDetail?.name || "";
   const roomDescription = groupDetail?.description || "";
 
+  const handleLockGroup = async () => {
+    if (hostId._id !== memberInfo.userId._id) {
+      alert("방장만 잠글 수 있습니다.");
+      return;
+    }
+
+    const confirmResult = window.confirm(
+      "방을 잠그고 멤버 모집을 종료할까요?\n한 번 잠그면 되돌릴 수 없어요🙂"
+    );
+
+    if (!confirmResult) return;
+
+    try {
+      await lockGroup(groupCode);
+      await refetchGroupDetail();
+    } catch (error) {
+      alert("방 잠금에 실패했습니다. 다시 시도해주세요.");
+      console.error(error);
+    }
+  };
+
+  const handleMatchGroup = async () => {
+    if (hostId._id !== memberInfo.userId._id) {
+      alert("방장만 매칭할 수 있습니다.");
+      return;
+    }
+
+    if (members.length < 3) {
+      alert("매칭하려면 최소 3명 이상의 멤버가 필요합니다.");
+      return;
+    }
+
+    const confirmResult = window.confirm(
+      "마니또 매칭을 시작할까요?\n매칭 후에는 되돌릴 수 없어요🙂"
+    );
+
+    if (!confirmResult) return;
+
+    try {
+      await matchGroup(groupCode);
+      await refetchGroupDetail();
+      alert("매칭이 완료되었어요! 이제 마니또를 확인하러 가볼까요?");
+    } catch (error) {
+      alert("매칭에 실패했습니다. 다시 시도해주세요.");
+      console.error(error);
+    }
+  };
+
   if (isGroupDetailLoading || isMemberInfoLoading) {
     return (
       <Layout innerBackground={startBg}>
@@ -150,19 +198,9 @@ const HomePage = () => {
             }}
           >
             {isLocked ? (
+              // 방 잠금 완료: 매칭 버튼
               <button
-                onClick={() => {
-                  if (hostId._id === memberInfo.userId._id) {
-                    if (members.length < 3) {
-                      alert("매칭하려면 최소 3명 이상의 멤버가 필요합니다.");
-                    } else {
-                      matchGroup(groupCode);
-                      refetchGroupDetail();
-                    }
-                  } else {
-                    alert("방장만 잠글 수 있습니다.");
-                  }
-                }}
+                onClick={() => handleMatchGroup()}
                 style={{
                   ...buttonStyle,
                   opacity: isMatched ? 0.5 : 1,
@@ -173,17 +211,8 @@ const HomePage = () => {
                 {isMatched ? "매칭 완료" : "매칭하기"}
               </button>
             ) : (
-              <button
-                onClick={() => {
-                  if (hostId._id === memberInfo.userId._id) {
-                    lockGroup(groupCode);
-                    refetchGroupDetail();
-                  } else {
-                    alert("방장만 잠글 수 있습니다.");
-                  }
-                }}
-                style={buttonStyle}
-              >
+              // 모집 중: 방 잠금 버튼
+              <button onClick={() => handleLockGroup()} style={buttonStyle}>
                 방 잠그기
               </button>
             )}
