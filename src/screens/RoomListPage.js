@@ -53,7 +53,7 @@ const RoomListPage = () => {
           style={{
             fontSize: "40px",
             fontWeight: "bold",
-            marginBottom: "20%",
+            marginBottom: "30%",
             textAlign: "center",
           }}
         >
