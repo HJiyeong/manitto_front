@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Layout1 from "../components/Layout1";
 import Layout from "../components/Layout";
 import startBg from "../assets/images/basic_background.png";
 import { useNavigate, useParams } from "react-router-dom";
@@ -48,25 +49,14 @@ const MissionWritePage = () => {
   }
 
   return (
-    <Layout innerBackground={startBg}>
+    <Layout1 innerBackground={startBg}>
       <div style={{ padding: "20px" }}>
         <div
           style={{
-            backgroundColor: "white",
-            borderTopLeftRadius: "0px",
-            borderTopRightRadius: "0px",
-            borderBottomLeftRadius: "50px",
-            borderBottomRightRadius: "50px",
-            padding: "100px 80px 100px 80px",
             fontWeight: "bold",
-            fontSize: "60px",
+            fontSize: "40px",
             textAlign: "center",
-            marginTop: "-50px",
-            marginLeft: "-40px",
-            marginRight: "-50px",
-            marginBottom: "70px",
-            width: "114%",
-            boxSizing: "border-box",
+            width: "100%",
           }}
         >
           미션 기록하기
@@ -90,7 +80,7 @@ const MissionWritePage = () => {
             borderRadius: "15px",
             padding: "15px",
             marginBottom: "20px",
-            fontSize: "28px",
+            fontSize: "20px",
             fontWeight: "bold",
             display: "flex",
             justifyContent: "space-between",
@@ -109,7 +99,7 @@ const MissionWritePage = () => {
             style={{
               border: "none",
               background: "none",
-              fontSize: "16px",
+              fontSize: "14px",
               fontWeight: "normal",
             }}
           />
@@ -126,7 +116,7 @@ const MissionWritePage = () => {
         >
           <div
             style={{
-              fontSize: "28px",
+              fontSize: "20px",
               fontWeight: "bold",
               marginBottom: "10px",
             }}
@@ -164,7 +154,7 @@ const MissionWritePage = () => {
         >
           <div
             style={{
-              fontSize: "28px",
+              fontSize: "20px",
               fontWeight: "bold",
               marginBottom: "10px",
             }}
@@ -195,9 +185,10 @@ const MissionWritePage = () => {
         <button
           onClick={handleSubmit}
           style={{
+            fontFamily: 'MyCustomFont, sans-serif',
             backgroundColor: "white",
             color: "black",
-            fontSize: "28px",
+            fontSize: "20px",
             fontWeight: "bold",
             borderRadius: "20px",
             width: "100%",
@@ -209,7 +200,7 @@ const MissionWritePage = () => {
           작성하기
         </button>
       </div>
-    </Layout>
+    </Layout1>
   );
 };
 

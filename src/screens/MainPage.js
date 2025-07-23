@@ -262,7 +262,8 @@ const MainPage = () => {
 
 };
 
-const buttonStyle = {
+const buttonStyle = { 
+  fontFamily: 'MyCustomFont, sans-serif',
   backgroundColor: "#000000ff",
   color: "white",
   padding: "10px 20px",

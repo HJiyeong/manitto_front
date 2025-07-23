@@ -12,15 +12,19 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
   const navigate = useNavigate();
 
   const menuButtonStyle = {
+    fontFamily: 'MyCustomFont, sans-serif',
+    color: "#fff", 
+    fontWeight: "600", 
+    letterSpacing: "-0.5px", 
+
     width: "100%",
     fontSize: "20px",
-    fontWeight: "bold",
     color: "black",
-    backgroundColor: "rgba(255, 255, 255, 1)",
+    backgroundColor: "rgba(255, 255, 255, 0.57)",
     border: "none",
     borderRadius: "8px",
     padding: "12px 8px",
-    margin: "50px 0",
+    margin: "20px 0",
     textAlign: "center",
     cursor: "pointer",
     transition: "background-color 0.2s ease",
@@ -104,7 +108,7 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
         <div style={{ margin: 50 }}>
           <h2
             style={{
-              margin: 0,
+              margin: -10,
               fontSize: "40px",
               fontWeight: "bold",
               color: "#333",
@@ -145,7 +149,7 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
             style={{
               width: "60px",
               height: "60px",
-              marginBottom: "100px",
+              marginBottom: "10px",
               backgroundColor: "transparent",
               border: "none",
               fontSize: "20px",
