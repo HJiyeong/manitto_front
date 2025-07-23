@@ -47,20 +47,20 @@ const ResultDetailPage = () => {
         {/* 제목 */}
         <div
           style={{
-            fontSize: "30px",
+            fontSize: "45px",
             fontWeight: "bold",
             marginTop: "5px",
-            marginBottom: "20%",
+            marginBottom: "40%",
             textAlign: "center", // 가운데 정렬이 더 자연스러울 수 있음
             lineHeight: "1.6",
           }}
         >
           <span style={{ color: "#2D9CDB", fontWeight: "800" }}>
-            {manittoInfo.manittoId.nickname}
+            {manittoInfo.userId.nickname}
           </span>
           님은<br />
           <span style={{ color: "#EB5757", fontWeight: "800" }}>
-            {manittoInfo.userId.nickname}
+            {manittoInfo.manittoId.nickname}
           </span>
           님의<br />
           마니또였습니다 🎉
@@ -79,7 +79,7 @@ const ResultDetailPage = () => {
                 padding: "16px",
                 width: "90%",
                 maxWidth: "400px",
-                margin: "10px 0",
+                margin: "20px 0",
                 display: "flex",
                 alignItems: "center",
                 cursor: "pointer",
