@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import Layout from "../components/Layout";
 import Layout1 from "../components/Layout1";
 import Main from "../assets/images/main.png";
 import startBg from "../assets/images/start_background.png";
 import Dumpling from "../assets/images/ic.png";
 import { getGroupDetails, lockGroup, matchGroup } from "../hooks/useGroup";
-import { getGroupMemberInfo } from "../hooks/useMember";
+import { getGroupMemberInfo, updateManittoGuess } from "../hooks/useMember";
 import { generateRandomPositions } from "../utils/generateRandomPositions";
 
 const MainPage = () => {
   const navigate = useNavigate();
   const { groupCode } = useParams();
 
-  const { data: memberInfo, isLoading } = useQuery({
+  const [showModal, setShowModal] = useState(false);
+  const [manittoGuess, setManittoGuess] = useState("");
+
+  // 나의 멤버 정보 불러오기
+  const {
+    data: memberInfo,
+    isLoading: isMemberInfoLoading,
+    refetch: refetchMemberInfo,
+  } = useQuery({
     queryKey: ["memberInfo"],
     queryFn: () => getGroupMemberInfo(groupCode),
     onError: (error) => {
@@ -23,35 +31,45 @@ const MainPage = () => {
     },
   });
 
-    // 그룹 정보 불러오기
-    const {
-      data: groupDetail,
-      isLoading: isGroupDetailLoading,
-      refetch: refetchGroupDetail,
-    } = useQuery({
-      queryKey: ["groupDetail"],
-      queryFn: () => getGroupDetails(groupCode),
-      enabled: !!groupCode,
-    });
+  // 그룹 정보 불러오기
+  const {
+    data: groupDetail,
+    isLoading: isGroupDetailLoading,
+    refetch: refetchGroupDetail,
+  } = useQuery({
+    queryKey: ["groupDetail"],
+    queryFn: () => getGroupDetails(groupCode),
+    enabled: !!groupCode,
+  });
 
-    
+  // 추측 등록
+  const { mutate: saveManittoGuess, isPending } = useMutation({
+    mutationFn: updateManittoGuess,
+    onSuccess: async () => {
+      refetchMemberInfo(); // 백엔드 서버에서 다시 멤버 정보 불러오기
+      setShowModal(false);
+    },
+  });
 
+  const handleSaveGuess = () => {
+    if (manittoGuess.trim() !== "") {
+      saveManittoGuess(groupCode, manittoGuess.trim());
+    }
+  };
 
-  if (isLoading) {
-    return (
-      <Layout innerBackground={startBg}>
-        <p>로딩 중...</p>
-      </Layout>
-    );
-  }
-
-  const missionCount = memberInfo.completedMissions.length;
+  const missionCount = memberInfo.completedMissions.length || 0;
   const dumplingPositions = generateRandomPositions(missionCount);
 
   const roomName = groupDetail?.name || "";
   const roomDescription = groupDetail?.description || "";
 
-    if (isGroupDetailLoading) {
+  useEffect(() => {
+    if (memberInfo?.predictionManitto) {
+      setManittoGuess(memberInfo.predictionManitto);
+    }
+  }, [memberInfo]);
+
+  if (isMemberInfoLoading || isGroupDetailLoading) {
     return (
       <Layout innerBackground={startBg}>
         <p>로딩 중...</p>
@@ -59,10 +77,9 @@ const MainPage = () => {
     );
   }
 
-
   return (
-    <Layout1 roomName={roomName} roomDescription={roomDescription}> 
-      <div style={{ textAlign: "center", fontSize: "10px", }}>
+    <Layout1 roomName={roomName} roomDescription={roomDescription}>
+      <div style={{ textAlign: "center", fontSize: "10px" }}>
         <h1>
           {memberInfo.userId.nickname}의 마니또는{" "}
           {memberInfo.manittoId?.nickname || ""}입니다.
@@ -79,13 +96,14 @@ const MainPage = () => {
             margin: "20px 0",
           }}
         >
-
-          <p style={{
-            fontSize: "10px",
-            color: "gray",
-            textAlign: "center",
-            marginBottom: "8px",
-          }}>
+          <p
+            style={{
+              fontSize: "10px",
+              color: "gray",
+              textAlign: "center",
+              marginBottom: "8px",
+            }}
+          >
             마니또에게 매일 미션을 수행하고 만두를 쌓아보세요!
           </p>
 
@@ -100,9 +118,6 @@ const MainPage = () => {
               display: "block",
             }}
           />
-
-
-
 
           {/* 만두 PNG 여러개 뿌리기 */}
           {dumplingPositions.map((pos, index) => (
@@ -136,9 +151,42 @@ const MainPage = () => {
             >
               미션 기록하기
             </button>
-            <button style={buttonStyle}>마니또 맞추기</button>
+            <button style={buttonStyle} onClick={() => setShowModal(true)}>
+              마니또 맞추기
+            </button>
           </div>
         </div>
+
+        {showModal && (
+          <div style={modalOverlay}>
+            <div style={modalBox}>
+              <h3>누가 나의 마니또일지 예상해보세요.</h3>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault(); // 기본 새로고침 방지
+                  handleSaveGuess();
+                }}
+              >
+                <input
+                  type="text"
+                  value={manittoGuess}
+                  onChange={(e) => setManittoGuess(e.target.value)}
+                  style={{
+                    width: "80%",
+                    padding: "10px",
+                    margin: "20px 0",
+                    fontSize: "16px",
+                    borderRadius: "8px",
+                    border: "1px solid #ccc",
+                  }}
+                />
+                <button type="submit" style={buttonStyle}>
+                  저장하기
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
       </div>
     </Layout1>
   );
