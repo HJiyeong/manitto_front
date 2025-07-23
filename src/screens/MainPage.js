@@ -131,6 +131,18 @@ const MainPage = () => {
             }}
           />
 
+           <p
+            style={{
+              fontSize: "10px",
+              color: "gray",
+              textAlign: "center",
+              marginBottom: "8px",
+            }}
+          >
+            마니또에게 매일 미션을 수행하고 만두를 쌓아보세요!
+          </p>
+
+
           {/* 만두 + 말풍선 */}
           {dumplingData.map((pos) => (
             <div
