@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import bgFull from "../assets/images/web_background.png";
 import bgInner from "../assets/images/basic_background.png";
 import sidebarBg from "../assets/images/side_background.png";
-import mypageIcon from "../assets/images/ic_mypage.png";
+import backIcon from "../assets/images/back.png";
 import sideIcon from "../assets/images/ic_side.png";
 
 const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
@@ -90,7 +90,7 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
               width: "20px",
               height: "20px",
               marginRight: "5%",
-              backgroundImage: `url(${mypageIcon})`,
+              backgroundImage: `url(${backIcon})`,
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",

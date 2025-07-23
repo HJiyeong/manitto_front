@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Layout from "../components/Layout";
+import Layout1 from "../components/Layout1";
 import startBg from "../assets/images/roomcode_background.png";
 import IC from "../assets/images/ic.png";
 import ICimage from "../assets/images/basic_background.png";
@@ -32,7 +32,7 @@ const RoomCodePage = () => {
   };
 
   return (
-    <Layout innerBackground={startBg}>
+    <Layout1 innerBackground={startBg}>
       <div
         style={{
           width: "100%",
@@ -40,7 +40,6 @@ const RoomCodePage = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "20px",
           boxSizing: "border-box",
         }}
       >
@@ -49,8 +48,7 @@ const RoomCodePage = () => {
           style={{
             fontSize: "40px",
             fontWeight: "bold",
-            marginTop: "30%",
-            marginBottom: "600px",
+            marginBottom: "180px",
             textAlign: "center",
           }}
         >
@@ -61,8 +59,8 @@ const RoomCodePage = () => {
         <div
           style={{
             backgroundColor: "white",
-            width: "90%",
-            maxWidth: "400px",
+            width: "70%",
+            maxWidth: "300px",
             borderRadius: "20px",
             padding: "30px 20px",
             boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
@@ -111,7 +109,7 @@ const RoomCodePage = () => {
           </button>
         </div>
       </div>
-    </Layout>
+    </Layout1>
   );
 };
 
