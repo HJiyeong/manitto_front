@@ -5,24 +5,22 @@ import startBg from "../assets/images/start_background.png";
 import Result from "../assets/images/result.png";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getGroupDetails } from "../hooks/useGroup";
+import { getGroupDetails, getGroupMemberInfo } from "../hooks/useGroup";
 
 const ResultPage = () => {
   const navigate = useNavigate();
   const { groupCode } = useParams();
 
-  // 그룹 정보 불러오기
-  const {
-    data: groupDetail,
-    isLoading,
-    refetch: refetchGroupDetail,
-  } = useQuery({
-    queryKey: ["groupDetail"],
-    queryFn: () => getGroupDetails(groupCode),
+  // 나의 멤버 정보 불러오기
+  const { data: memberInfo, isLoading } = useQuery({
+    queryKey: ["memberInfo"],
+    queryFn: () => getGroupMemberInfo(groupCode),
     enabled: !!groupCode,
   });
 
-  const roomName = groupDetail?.name || "";
+  const roomName = memberInfo?.groupId.name || "";
+  const myNickname = memberInfo?.userId.nickname || "";
+  const predictionManitto = memberInfo?.predictionManitto || "";
 
   if (isLoading) {
     return (
@@ -35,6 +33,18 @@ const ResultPage = () => {
     <Layout1 roomName={roomName}>
       <div style={{ textAlign: "center" }}>
         <h1>두근두근 결과 확인</h1>
+        <p
+          style={{
+            marginTop: "8px",
+            marginBottom: 0,
+            fontSize: "16px",
+            color: "#666",
+          }}
+        >
+          {predictionManitto !== ""
+            ? `과연 ${myNickname}님의 마니또는 ${predictionManitto}님이었을까요?`
+            : `과연 ${myNickname}님의 마니또는 누구였을까요?`}
+        </p>
         <div
           style={{
             backgroundColor: "white",
