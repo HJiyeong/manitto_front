@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Layout1 from "../components/Layout1";
+import Layout from "../components/Layout";
 import startBg from "../assets/images/roomlist_background.png";
 import IC from "../assets/images/ic.png";
 import ICimage from "../assets/images/basic_background.png";
