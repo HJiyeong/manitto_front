@@ -90,7 +90,7 @@ const MainPage = () => {
     );
   }
 
-  return (
+    return (
     <Layout1 roomName={roomName} roomDescription={roomDescription}>
       <div style={{ textAlign: "center", fontSize: "10px" }}>
         <h1>
@@ -121,7 +121,6 @@ const MainPage = () => {
           </p>
 
           {/* 배경 이미지 */}
-
           <img
             src={Main}
             style={{
@@ -132,19 +131,23 @@ const MainPage = () => {
             }}
           />
 
-          {/* 만두 PNG 여러개 뿌리기 */}
-          {dumplingData.map((pos, index) => (
-            <React.Fragment key={pos.id}>
+          {/* 만두 + 말풍선 */}
+          {dumplingData.map((pos) => (
+            <div
+              key={pos.id}
+              style={{
+                position: "absolute",
+                top: pos.top,
+                left: pos.left,
+                zIndex: 2,
+              }}
+            >
               {/* 만두 이미지 */}
               <img
                 src={Dumpling}
                 className="dumpling-animated"
                 style={{
-                  position: "absolute",
                   width: "50px",
-                  top: pos.top,
-                  left: pos.left,
-                  zIndex: 2,
                   cursor: "pointer",
                 }}
                 onClick={() =>
@@ -157,25 +160,24 @@ const MainPage = () => {
                 <div
                   style={{
                     position: "absolute",
-                    top: pos.top - 50, // 만두 위로 띄움
-                    left: pos.left + 10, // 중앙 정렬 조정
+                    bottom: "60px", // 만두 위로
+                    left: "50%",
+                    transform: "translateX(-50%)",
                     backgroundColor: "white",
                     border: "1px solid #ccc",
                     borderRadius: "10px",
-                    padding: "8px 10px",
+                    padding: "6px 10px",
                     fontSize: "12px",
-                    maxWidth: "160px",
-                    zIndex: 3,
-                    whiteSpace: "pre-wrap",
+                    whiteSpace: "nowrap",
                     boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+                    zIndex: 3,
                   }}
                 >
                   {pos.content}
                 </div>
               )}
-            </React.Fragment>
+            </div>
           ))}
-
 
           {/* 버튼 영역 */}
           <div
@@ -198,6 +200,7 @@ const MainPage = () => {
           </div>
         </div>
 
+        {/* 마니또 맞추기 모달 */}
         {showModal && (
           <div style={modalOverlay}>
             <div style={{ ...modalBox, position: "relative" }}>
@@ -241,11 +244,11 @@ const MainPage = () => {
               </form>
             </div>
           </div>
-
         )}
       </div>
     </Layout1>
   );
+
 };
 
 const buttonStyle = {
