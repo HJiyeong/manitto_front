@@ -80,9 +80,12 @@ const StartPage = () => {
           <div style={modalOverlay}>
             <div style={modalBox}>
               <h3>닉네임을 입력해주세요</h3>
+              <p style={{ fontSize: "14px", color: "gray", marginTop: "-10px" }}>
+                다른 사용자가 본인임을 알아볼 수 있는 닉네임이면 좋아요!
+              </p>
               <form
                 onSubmit={(e) => {
-                  e.preventDefault(); // 기본 새로고침 방지
+                  e.preventDefault();
                   handleSaveNickname();
                 }}
               >
@@ -99,13 +102,14 @@ const StartPage = () => {
                     border: '1px solid #ccc',
                   }}
                 />
-                <button type='submit' style={buttonStyle}>
+                <button type="submit" style={buttonStyle}>
                   저장하기
                 </button>
               </form>
             </div>
           </div>
         )}
+
       </div>
     </Layout>
   );
