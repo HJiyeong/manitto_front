@@ -13,14 +13,14 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
 
   const menuButtonStyle = {
     fontFamily: 'MyCustomFont, sans-serif',
-    color: "#fff", // 흰색 텍스트
-    fontWeight: "600", // 굵게
-    letterSpacing: "-0.5px", // 시각적으로 좀 더 깔끔하게
+    color: "#fff", 
+    fontWeight: "600", 
+    letterSpacing: "-0.5px", 
 
     width: "100%",
     fontSize: "20px",
     color: "black",
-    backgroundColor: "rgba(0, 0, 0, 0.47)",
+    backgroundColor: "rgba(255, 255, 255, 0.57)",
     border: "none",
     borderRadius: "8px",
     padding: "12px 8px",
