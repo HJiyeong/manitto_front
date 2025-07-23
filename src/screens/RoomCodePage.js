@@ -40,7 +40,6 @@ const RoomCodePage = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "20px",
           boxSizing: "border-box",
         }}
       >
@@ -49,8 +48,8 @@ const RoomCodePage = () => {
           style={{
             fontSize: "40px",
             fontWeight: "bold",
-            marginTop: "30%",
-            marginBottom: "100px",
+            marginTop: "20%",
+            marginBottom: "120px",
             textAlign: "center",
           }}
         >
