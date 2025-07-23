@@ -47,16 +47,23 @@ const ResultDetailPage = () => {
         {/* 제목 */}
         <div
           style={{
-            fontSize: "30px",
+            fontSize: "40px",
             fontWeight: "bold",
             marginTop: "5px",
             marginBottom: "20%",
             textAlign: "left",
           }}
         >
-          {manittoInfo.userId.nickname}님은 {manittoInfo.manittoId.nickname}님의
-          마니또입니다.
+          <span style={{ color: "#2D9CDB", fontWeight: "800" }}>
+            {manittoInfo.userId.nickname}
+          </span>
+          님은{" "}
+          <span style={{ color: "#EB5757", fontWeight: "800" }}>
+            {manittoInfo.manittoId.nickname}
+          </span>
+          님의 마니또입니다.
         </div>
+
 
         {/* 미션 카드 리스트 */}
         {manittoInfo.completedMissions.length > 0 ? (
