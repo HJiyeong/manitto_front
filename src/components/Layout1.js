@@ -12,6 +12,11 @@ const Layout1 = ({ children, innerBackground, roomName, roomDescription }) => {
   const navigate = useNavigate();
 
   const menuButtonStyle = {
+    fontFamily: 'MyCustomFont, sans-serif',
+    color: "#fff", // 흰색 텍스트
+    fontWeight: "600", // 굵게
+    letterSpacing: "-0.5px", // 시각적으로 좀 더 깔끔하게
+
     width: "100%",
     fontSize: "20px",
     color: "black",
